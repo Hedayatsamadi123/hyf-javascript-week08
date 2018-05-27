@@ -1,0 +1,22 @@
+.btn {
+    background-color: #3b8ab6; /* Green */
+    border: none;
+    color: rgb(15, 15, 15);
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.btn{
+    border-radius: 10%;
+}
+.btn:hover {background-color: #3b8ab6}
+
+.btn:active {
+  background-color: #3b8ab6;
+  box-shadow: 0 10px #666;
+  transform: translateY(5px);
+}
