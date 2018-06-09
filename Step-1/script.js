@@ -1,35 +1,50 @@
-console.log("Step 1 ");
-let arr = [];
-for (let i = 1; i <= 1000; i++) {
-  arr.push(i);
-}
-console.log('Array 1 To 1000 :', arr);
+console.log("Step-1");
 
-function divisibleFactory(z){
-  const divisibleFunction = () => arr.filter(val => val % z === 0);
-  return divisibleFunction;
+let array = [];
+for (let i = 1; i <= 1000; i++){
+    array.push(i);
 }
 
-// apply your function
-// const divisbleByWHATEVERNUMBER = arr ... WHATEVERNUMBER ... ;
+console.log('Array 1 To 1000 :',array);
 
+function divisibleFactory (z){
+    function check(array){
+        return array.filter(num => num % z === 0);
+    }
+    return check;
+}
 // Numbers divisible by 3
-const divisibleBy3 = divisibleFactory(5);
-console.log("Numbers divisible by 3 :", divisibleBy3());
+check3 = divisibleFactory(3);
+// Numbers divisible by 10
+check10 = divisibleFactory(10);
+// Numbers divisible by 21
+check21 = divisibleFactory(21);
 
-// Numbers divisible by 10 
-const divisibleBy10 = divisibleFactory(10);
-console.log("Numbers divisible by 10 :", divisibleBy10());
+console.log("Numbers divisible by 3 :",check3(array));
+console.log("Numbers divisible by 10 :",check10(array));
+console.log("Numbers divisible by 21 :",check21(array));
 
-// Numbers divisible by 21 
-const divisibleBy21 = divisibleFactory(21);
-console.log("Numbers divisible by 21 :", divisibleBy21());
 
 // Numbers divisible by 1 upto 30
+function count(numbers ){
+    return function sum (array){
+        // console.log(numbers.length, array.length);
 
-let NumbersDivisble1To30 = [];
-for (let i = 1; i <= 30; i ++){
-    const divisibleByNum = divisibleFactory(i);
-    NumbersDivisble1To30.push(divisibleByNum().length);
+         const newArray = numbers.map((number) => {
+            var  checkN = divisibleFactory(number);
+            var arrayN = checkN(array);
+            return arrayN.length;
+         });
+         console.log("Numbers divisible by 1 upto 30 :",newArray);
+    }
+
 }
-console.log("Numbers divisible by 1 upto 30 :", NumbersDivisble1To30);
+let numbers = [];
+for(let i = 1; i <= 30; i++){
+    numbers.push(i)
+}
+const sumFunction = count (numbers);
+sumFunction(array);
+
+
+
